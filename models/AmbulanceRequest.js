@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const ambulanceRequest = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "A Donor must have a Name"],
+    required: [true, "A ambulace  must have user name"],
   },
 
   phoneNumber: {
