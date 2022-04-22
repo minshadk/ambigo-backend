@@ -9,8 +9,12 @@ app.use(cors());
 
 // Importing Routes
 const ambulanceRequest = require("./routes/AmbulanceRequest");
+const ambulance = require("./routes/Ambulance");
+const user = require("./routes/User");
 
 app.use("/api/ambulanceRequest", ambulanceRequest);
+app.use("/api/ambulance", ambulance);
+app.use("/api/user", user);
 
 mongoose
   .connect(

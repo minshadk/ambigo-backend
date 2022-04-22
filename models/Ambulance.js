@@ -11,6 +11,12 @@ const ambulance = new mongoose.Schema({
     required: [true, "A ambulace  must have Phone Number"]
   },
 
+  email: {
+    type: String,
+    required: [true, "A Product must have a email"],
+    unique: true
+  },
+
   location: {
     type: {
       type: String,
@@ -19,7 +25,11 @@ const ambulance = new mongoose.Schema({
     coordinates: {
       type: [Number]
     }
-    // required: [true, "A blood request must have a location"]
+  },
+  
+  password: {
+    type: String,
+    required: [true, "A Product must have a password"]
   }
 });
 
