@@ -19,7 +19,6 @@ const ambulanceRequest = new mongoose.Schema({
     coordinates: {
       type: [Number],
     },
-    // required: [true, "A blood request must have a location"]
   },
 });
 

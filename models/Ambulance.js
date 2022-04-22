@@ -14,7 +14,6 @@ const ambulance = new mongoose.Schema({
   email: {
     type: String,
     required: [true, "A Product must have a email"],
-    unique: true
   },
 
   location: {
