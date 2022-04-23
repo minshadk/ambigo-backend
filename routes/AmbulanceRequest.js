@@ -5,15 +5,15 @@ const AmbulanceRequest = require("../models/AmbulanceRequest");
 // Create request
 router.post("/", async (req, res) => {
   console.log("create ambulace called");
-  console.log(req.body)
+  console.log(req.body);
   try {
     const newAmbulanceRequest = await AmbulanceRequest.create(req.body);
-
+    console.log(newAmbulanceRequest);
     res.status(201).json({
       status: "success",
       data: {
-        ambulanceRequest: newAmbulanceRequest,
-      },
+        ambulanceRequest: newAmbulanceRequest
+      }
     });
   } catch (err) {
     res.status(400).json({

@@ -72,8 +72,6 @@ router.get("allAmbulance", async (req, res) => {
 
 router.get("/findAmbulance/:id", async (req, res) => {
   try {
-    // const allambulanceRequest = await AmbulanceRequest.find();
-
     const ambulanceRequest = await AmbulanceRequest.findById(req.params.id);
 
     const coordinates = ambulanceRequest.location.coordinates;
@@ -84,15 +82,15 @@ router.get("/findAmbulance/:id", async (req, res) => {
     const distanceInKilometer = 500000;
     const radius = distanceInKilometer / 6378.1;
 
-    const ambulances = await Ambulance.find({
-      location: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
-    })
+    const ambulances = await Ambulance.find({ $and:{
+      loc: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
+    }},)
       .sort("asc")
       .limit(5);
 
     console.log(ambulances);
     res.status(201).json({
-      status: "Login success full",
+      status: "success",
       data: {
         ambulances: ambulances
       }
