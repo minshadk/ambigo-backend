@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/findHospital/:id", async (req, res) => {
-  console.log("find hopital called");
+  console.log("find hospital called");
   try {
     const hospitalRequest = await HospitalRequest.findById(req.params.id);
 
@@ -36,7 +36,7 @@ router.get("/findHospital/:id", async (req, res) => {
     const distanceInKilometer = 500000;
     const radius = distanceInKilometer / 6378.1;
 
-    // const hopital = await Ambulance.find({ $and:{
+    // const hospital = await Ambulance.find({ $and:{
     //   loc: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
     // }},)
     //   .sort("asc")
@@ -51,17 +51,17 @@ router.get("/findHospital/:id", async (req, res) => {
     //   .sort("asc")
     //   .limit(5);
 
-    const hopital = await Hospital.find({
+    const hospital = await Hospital.find({
       location: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
     })
       .sort("asc")
       .limit(5);
 
-    console.log(hopital);
+    console.log(hospital);
     res.status(201).json({
       status: "success",
       data: {
-        hopital: hopital
+        hospital: hospital
       }
     });
   } catch (err) {

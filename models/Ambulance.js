@@ -13,12 +13,11 @@ const ambulance = new mongoose.Schema({
 
   email: {
     type: String,
-    required: [true, "A Product must have a email"],
   },
 
   type: {
     type: String,
-    required: [true, "A Product must have a email"],
+    required: [true, "A Ambulance must have a type"],
   },
 
   location: {
@@ -28,7 +27,7 @@ const ambulance = new mongoose.Schema({
     },
     coordinates: {
       type: [Number]
-    }
+    } 
   },
   
   password: {

@@ -116,6 +116,7 @@ const AmbulanceRequest = require("../models/AmbulanceRequest");
 
 // Create request
 router.post("/", async (req, res) => {
+  console.log(req.body)
   try {
     const newAmbulance = await Ambulance.create(req.body);
 
@@ -126,6 +127,7 @@ router.post("/", async (req, res) => {
       }
     });
   } catch (err) {
+    console.log(err)
     res.status(400).json({
       status: "failed",
       message: "Invalid data send",
