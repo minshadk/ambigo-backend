@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ambulance = new mongoose.Schema({
+const hospital = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "A ambulace  must have a driver name"]
@@ -13,12 +13,7 @@ const ambulance = new mongoose.Schema({
 
   email: {
     type: String,
-    required: [true, "A Product must have a email"],
-  },
-
-  type: {
-    type: String,
-    required: [true, "A Product must have a email"],
+    required: [true, "A Product must have a email"]
   },
 
   location: {
@@ -30,13 +25,17 @@ const ambulance = new mongoose.Schema({
       type: [Number]
     }
   },
-  
+
+  address: {
+    type: String
+  },
+
   password: {
     type: String,
     required: [true, "A Product must have a password"]
   }
 });
 
-const Ambulance = mongoose.model("Ambulance", ambulance);
+const Hospital = mongoose.model("Hospital", hospital);
 
-module.exports = Ambulance;
+module.exports = Hospital;

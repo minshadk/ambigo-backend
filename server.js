@@ -8,12 +8,20 @@ app.use(express.json());
 app.use(cors());
 
 // Importing Routes
-const ambulanceRequest = require("./routes/AmbulanceRequest");
 const ambulance = require("./routes/Ambulance");
+const ambulanceRequest = require("./routes/AmbulanceRequest");
+
+const hospital = require("./routes/Hospital");
+const hospitalRequest = require("./routes/HospitalRequest");
+
 const user = require("./routes/User");
 
-app.use("/api/ambulanceRequest", ambulanceRequest);
 app.use("/api/ambulance", ambulance);
+app.use("/api/ambulanceRequest", ambulanceRequest);
+
+app.use("/api/hospital", hospital);
+app.use("/api/hospitalRequest", hospitalRequest);
+
 app.use("/api/user", user);
 
 mongoose
